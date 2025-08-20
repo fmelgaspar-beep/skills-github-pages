@@ -1,509 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inscrição – Jogos Escolares (Atletismo Convencional)</title>
+  <meta charset="UTF-8">
+  <title>Inscrição Jogos Escolares</title>
   <style>
-    :root {
-      --bg: #0f172a; /* slate-900 */
-      --panel: #111827ee; /* gray-900 */
-      --muted: #94a3b8; /* slate-400 */
-      --text: #e5e7eb; /* gray-200 */
-      --accent: #22d3ee; /* cyan-400 */
-      --accent-2: #a78bfa; /* violet-400 */
-      --ok: #34d399; /* green-400 */
-      --warn: #f59e0b; /* amber-500 */
-      --error: #fb7185; /* rose-400 */
-      --border: #1f2937; /* gray-800 */
-    }
-    * { box-sizing: border-box; }
     body {
-      margin: 0; background: radial-gradient(1200px 800px at 10% -10%, #0b1022 0%, #080c1a 25%, var(--bg) 60%);
-      color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.45;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f7f7;
     }
-    .container { max-width: 1100px; margin: 24px auto; padding: 16px; }
-    .card { background: linear-gradient(180deg, #0b1224, #0a0f1e); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 30px #0005; padding: 20px; margin-bottom: 16px; }
-    h1, h2, h3 { margin: 0 0 12px; }
-    h1 { font-size: 1.6rem; letter-spacing: .2px; }
-    h2 { font-size: 1.2rem; color: var(--accent); }
-    label { display:block; margin: 8px 0 6px; color: var(--muted); font-size: .95rem; }
-    input[type="text"], input[type="date"], select { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: #0b1020; color: var(--text); }
-    .row { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-    .col-6 { grid-column: span 6; }
-    .col-4 { grid-column: span 4; }
-    .col-3 { grid-column: span 3; }
-    .col-12 { grid-column: span 12; }
-    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--border); background:#0b1020; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:#0b1328; color:var(--text); cursor:pointer; }
-    .btn:hover { filter: brightness(1.05); }
-    .btn-primary { background: linear-gradient(90deg, #0ea5e9, #22d3ee); border: none; color:#021015; font-weight: 700; }
-    .btn-danger { background: linear-gradient(90deg, #f43f5e, #fb7185); border: none; color:#160709; font-weight: 700; }
-    .muted { color: var(--muted); font-size: .92rem; }
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, #1f2937, transparent); margin: 14px 0; }
-    .grid-events { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
-    .event { border:1px solid var(--border); border-radius:12px; padding:10px; background:#0b1020; display:flex; justify-content:space-between; align-items:center; gap:10px; }
-    .event.disabled { opacity:.45; filter: grayscale(0.2); }
-    .badge { padding:2px 8px; border-radius:999px; font-size:.8rem; border:1px solid var(--border); }
-    .badge.ok { background:#05281c; color:var(--ok); border-color:#064e3b; }
-    .badge.warn { background:#2a1d05; color:var(--warn); border-color:#7c4a03; }
-    .badge.error { background:#2a0a0e; color:var(--error); border-color:#7f1d1d; }
-    details { border:1px solid var(--border); border-radius:12px; padding:12px; background:#0b1020; }
-    summary { cursor:pointer; color: var(--accent-2); font-weight:600; }
-    .sticky-footer { position: sticky; bottom: 0; background: linear-gradient(180deg, #0a0f1e, #0b1224); border-top:1px solid var(--border); padding: 12px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; border-radius: 14px; }
-    .help { font-size:.9rem; color: var(--muted); }
-    .small { font-size:.85rem; color: var(--muted); }
-    .chip { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#0b1328; border:1px solid var(--border); font-size:.85rem; }
-    .student-card { position: relative; }
-    .student-header { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
-    .counter { display:flex; gap:8px; flex-wrap:wrap; }
-    .hidden { display:none !important; }
-    @media (max-width: 840px){
-      .grid-events{ grid-template-columns: 1fr; }
-      .row{ grid-template-columns: 1fr; }
-      .col-6, .col-4, .col-3, .col-12{ grid-column: span 1; }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .aluno {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      input, select {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="card">
-      <h1>Inscrição – Atletismo Convencional • Jogos Escolares de Gaspar</h1>
-      <p class="muted">Cada escola pode inscrever <b>até 2 alunos por prova</b>. Cada aluno pode participar de <b>até 2 provas individuais</b> + <b>1 revezamento</b>.</p>
-    </div>
+    <h2>Formulário de Inscrição</h2>
 
-    <!-- Configuração de disponibilidade das provas -->
-    <div class="card">
-      <h2>Disponibilidade de Provas (opcional)</h2>
-      <p class="small">Marque apenas as provas que ainda aceitam inscrições. As não marcadas ficarão indisponíveis neste formulário.</p>
-      <div id="availability" class="grid-events"></div>
-    </div>
+    <label>Unidade de Ensino:</label>
+    <input type="text" id="unidadeEnsino" required>
 
-    <!-- Identificação da escola -->
-    <div class="card">
-      <h2>1) Identificação da Escola</h2>
-      <div class="row">
-        <div class="col-6">
-          <label for="school">Nome da Unidade de Ensino</label>
-          <input id="school" type="text" required placeholder="Ex.: EEB João XXIII" />
-        </div>
-        <div class="col-6">
-          <label for="teacher">Professor Responsável</label>
-          <input id="teacher" type="text" required placeholder="Nome completo" />
-        </div>
-      </div>
-    </div>
+    <label>Nome do Professor Responsável:</label>
+    <input type="text" id="professor" required>
 
-    <!-- Lista dinâmica de alunos -->
-    <div class="card">
-      <div class="student-header">
-        <h2>2) Inscrição de Alunos</h2>
-        <div class="counter">
-          <span class="chip"><strong>Total de alunos:</strong> <span id="totalStudents">0</span></span>
-          <span class="chip"><strong>Vagas por prova restantes</strong>: <span class="small">(mostrado ao lado de cada prova)</span></span>
-        </div>
-      </div>
-      <div id="students"></div>
-      <div class="divider"></div>
-      <button class="btn btn-primary" id="addStudentBtn" type="button">+ Adicionar aluno</button>
-    </div>
+    <label>Email de Contato:</label>
+    <input type="email" id="email" required>
 
-    <!-- Rodapé com ações -->
-    <div class="card sticky-footer">
-      <div class="help">Validações ativas: <b>2 alunos por prova</b> (no envio) • <b>2 provas por aluno</b> • Revezamento por categoria.</div>
-      <div style="display:flex; gap:8px;">
-        <button class="btn" type="button" id="previewBtn">Pré-visualizar JSON</button>
-        <button class="btn btn-primary" type="button" id="submitBtn">Enviar inscrições</button>
-      </div>
-    </div>
+    <label>Telefone:</label>
+    <input type="tel" id="telefone" required>
+
+    <div id="alunosContainer"></div>
+
+    <button type="button" onclick="adicionarAluno()">+ Adicionar Aluno</button>
+    <button type="button" onclick="enviarFormulario()">Enviar Inscrição</button>
   </div>
 
-  <template id="studentTemplate">
-    <div class="card student-card" data-student-id="">
-      <div class="student-header">
-        <h3>Aluno <span class="student-number"></span></h3>
-        <button class="btn btn-danger btnRemove" type="button">Remover</button>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <label>Nome do Aluno/Atleta</label>
-          <input type="text" class="inp-name" required placeholder="Nome completo" />
-        </div>
-        <div class="col-3">
-          <label>Data de Nascimento</label>
-          <input type="date" class="inp-dob" required />
-        </div>
-        <div class="col-3">
-          <label>CPF/RG</label>
-          <input type="text" class="inp-doc" required placeholder="Somente números / RG" />
-        </div>
-        <div class="col-4">
-          <label>Categoria</label>
-          <select class="sel-category" required>
-            <option value="">Selecione…</option>
-            <option>Mirim</option>
-            <option>Infantil</option>
-            <option>Infanto</option>
-          </select>
-        </div>
-        <div class="col-8">
-          <label>Resumo de seleção</label>
-          <div class="pill"><span class="small">Provas individuais:</span> <b class="ind-count">0</b> / 2 &nbsp;•&nbsp; <span class="small">Revezamento:</span> <b class="relay-label">—</b></div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <h3>Provas Individuais (máx. 2)</h3>
-      <div class="grid-events ind-events"></div>
-
-      <div class="divider"></div>
-
-      <h3>Revezamento (opcional)</h3>
-      <div class="grid-events relay-events"></div>
-    </div>
-  </template>
-
   <script>
-    // ==============================
-    // Configuração de Provas
-    // ==============================
-    const EVENTS = {
-      individual: [
-        { id: '75m', label: '75 m', categories: ['Mirim','Infantil','Infanto'] },
-        { id: '200m', label: '200 m', categories: ['Mirim','Infantil','Infanto'] },
-        { id: '400m', label: '400 m', categories: ['Mirim','Infantil','Infanto'] },
-        { id: '600m', label: '600 m', categories: ['Infantil'] },
-        { id: '800m', label: '800 m', categories: ['Infanto'] },
-        { id: 'peso', label: 'Arremesso de Peso', categories: ['Mirim','Infantil','Infanto'] },
-        { id: 'altura', label: 'Salto em Altura', categories: ['Mirim','Infantil','Infanto'] },
-        { id: 'distancia', label: 'Salto em Distância', categories: ['Mirim','Infantil','Infanto'] },
-      ],
-      relay: [
-        { id: '4x50', label: 'Revezamento 4x50 m', categories: ['Mirim'] },
-        { id: '4x100', label: 'Revezamento 4x100 m', categories: ['Infantil','Infanto'] },
-      ]
+    const provasPorCategoria = {
+      "Mirim": ["50m", "100m", "Salto em distância", "Arremesso de peso"],
+      "Infantil": ["100m", "200m", "400m", "Salto em altura", "Lançamento de dardo"],
+      "Infanto": ["400m", "800m", "1500m", "Salto triplo", "Arremesso de disco"]
     };
 
-    // Estado global (apenas nesta submissão)
-    const availability = {}; // eventId -> true/false (se está aberta)
-    const perEventCount = {}; // eventId -> 0..2 (alunos desta escola no envio atual)
+    const revezamentos = ["4x100m", "4x400m"];
 
-    // Inicializar disponibilidade e contagens
-    [...EVENTS.individual, ...EVENTS.relay].forEach(e => {
-      availability[e.id] = true; // por padrão, tudo disponível
-      perEventCount[e.id] = 0;
-    });
+    let alunoCount = 0;
 
-    // Helpers
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+    function adicionarAluno() {
+      alunoCount++;
+      const container = document.getElementById("alunosContainer");
 
-    const studentsWrap = document.getElementById('students');
-    const studentTpl = document.getElementById('studentTemplate');
-    const totalStudentsEl = document.getElementById('totalStudents');
+      const div = document.createElement("div");
+      div.classList.add("aluno");
+      div.innerHTML = `
+        <h3>Aluno ${alunoCount}</h3>
+        <label>Nome:</label>
+        <input type="text" class="nome" required>
 
-    // Render de disponibilidade (organizador pode desmarcar)
-    const availabilityWrap = document.getElementById('availability');
-    function renderAvailability() {
-      availabilityWrap.innerHTML = '';
-      const all = [...EVENTS.individual, ...EVENTS.relay];
-      all.forEach(ev => {
-        const box = document.createElement('div');
-        box.className = 'event';
-        box.innerHTML = `
-          <label style="display:flex; gap:10px; align-items:center; width:100%">
-            <input type="checkbox" data-ev="${ev.id}" ${availability[ev.id] ? 'checked' : ''} />
-            <div style="flex:1">
-              <div><b>${ev.label}</b></div>
-              <div class="small">Categorias: ${ev.categories.join(', ')}</div>
-            </div>
-            <span class="badge ok">Aberta</span>
-          </label>`;
-        const chk = $('input', box);
-        const badge = $('.badge', box);
-        chk.addEventListener('change', () => {
-          availability[ev.id] = chk.checked;
-          badge.textContent = chk.checked ? 'Aberta' : 'Fechada';
-          badge.className = 'badge ' + (chk.checked ? 'ok' : 'error');
-          // Atualiza todas as seções de alunos
-          $$('.student-card').forEach(card => refreshStudentEvents(card));
+        <label>Gênero:</label>
+        <select class="genero" required>
+          <option value="">Selecione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+        </select>
+
+        <label>Data de Nascimento:</label>
+        <input type="text" class="dataNascimento" placeholder="DD/MM/AAAA" required>
+
+        <label>Categoria:</label>
+        <select class="categoria" onchange="atualizarProvas(this)" required>
+          <option value="">Selecione</option>
+          <option value="Mirim">Mirim</option>
+          <option value="Infantil">Infantil</option>
+          <option value="Infanto">Infanto</option>
+        </select>
+
+        <label>Prova 1:</label>
+        <select class="prova1" onchange="filtrarProvas(this)">
+          <option value="">Selecione</option>
+        </select>
+
+        <label>Prova 2:</label>
+        <select class="prova2">
+          <option value="">Selecione</option>
+        </select>
+
+        <label>Revezamento:</label>
+        <select class="revezamento">
+          <option value="">Selecione</option>
+          ${revezamentos.map(p => `<option value="${p}">${p}</option>`).join("")}
+        </select>
+      `;
+      container.appendChild(div);
+    }
+
+    function atualizarProvas(selectCategoria) {
+      const categoria = selectCategoria.value;
+      const divAluno = selectCategoria.closest(".aluno");
+      const prova1 = divAluno.querySelector(".prova1");
+      const prova2 = divAluno.querySelector(".prova2");
+
+      prova1.innerHTML = `<option value="">Selecione</option>`;
+      prova2.innerHTML = `<option value="">Selecione</option>`;
+
+      if (categoria && provasPorCategoria[categoria]) {
+        provasPorCategoria[categoria].forEach(p => {
+          prova1.innerHTML += `<option value="${p}">${p}</option>`;
+          prova2.innerHTML += `<option value="${p}">${p}</option>`;
         });
-        availabilityWrap.appendChild(box);
-      });
+      }
     }
 
-    // Criação/remoção de alunos
-    let studentSeq = 0;
-    function addStudent() {
-      const node = studentTpl.content.firstElementChild.cloneNode(true);
-      const studentId = `s${++studentSeq}`;
-      node.dataset.studentId = studentId;
-      $('.student-number', node).textContent = studentSeq;
+    function filtrarProvas(select) {
+      const divAluno = select.closest(".aluno");
+      const prova1 = divAluno.querySelector(".prova1").value;
+      const prova2 = divAluno.querySelector(".prova2");
 
-      // Listeners
-      $('.btnRemove', node).addEventListener('click', () => removeStudent(node));
-      $('.sel-category', node).addEventListener('change', () => refreshStudentEvents(node));
-
-      // Render inicial de provas
-      refreshStudentEvents(node);
-
-      studentsWrap.appendChild(node);
-      updateTotals();
-    }
-
-    function removeStudent(card){
-      // Antes de remover, liberar contagens das provas marcadas
-      $$('input[type="checkbox"][data-ev]', card).forEach(chk => {
-        if (chk.checked) {
-          perEventCount[chk.dataset.ev] = Math.max(0, (perEventCount[chk.dataset.ev]||0) - 1);
-        }
-      });
-      card.remove();
-      // Recalcular contagens (segurança)
-      recomputeEventCountsFromDOM();
-      // Atualiza bloqueios
-      $$('.student-card').forEach(c => refreshStudentEvents(c));
-      updateTotals();
-    }
-
-    function updateTotals(){
-      totalStudentsEl.textContent = $$('.student-card').length;
-    }
-
-    function recomputeEventCountsFromDOM(){
-      Object.keys(perEventCount).forEach(k => perEventCount[k] = 0);
-      $$('.student-card').forEach(card => {
-        $$('input[type="checkbox"][data-ev]', card).forEach(chk => {
-          if (chk.checked) perEventCount[chk.dataset.ev]++;
-        });
-      });
-    }
-
-    // Render das provas para um aluno (com todas as regras)
-    function refreshStudentEvents(card){
-      const cat = $('.sel-category', card).value;
-      const indWrap = $('.ind-events', card);
-      const relayWrap = $('.relay-events', card);
-      indWrap.innerHTML = '';
-      relayWrap.innerHTML = '';
-
-      // Contador individual do aluno
-      const indCountEl = $('.ind-count', card);
-      const relayLabelEl = $('.relay-label', card);
-
-      // Construir itens
-      function makeEventCheckbox(ev, group){
-        const taken = perEventCount[ev.id] || 0;
-        const remaining = Math.max(0, 2 - taken);
-        const box = document.createElement('label');
-        box.className = 'event';
-        box.innerHTML = `
-          <span style="display:flex; align-items:center; gap:10px;">
-            <input type="checkbox" data-ev="${ev.id}" />
-            <span><b>${ev.label}</b><br><span class="small">Restantes na escola: <b>${remaining}</b> / 2</span></span>
-          </span>
-          <span class="badge ${remaining>0 ? 'ok' : 'error'}">${remaining>0 ? 'Disponível' : 'Lotada'}</span>`;
-        const chk = $('input', box);
-
-        // Desabilitar pelas regras
-        const allowedCategory = !cat || ev.categories.includes(cat);
-        const open = availability[ev.id];
-        const hasSlots = remaining > 0;
-        const shouldEnable = allowedCategory && open && hasSlots;
-        if (!shouldEnable) {
-          chk.disabled = true; box.classList.add('disabled');
-        }
-
-        chk.addEventListener('change', () => {
-          // Regra: no máximo 2 provas individuais por aluno
-          if (group === 'ind'){
-            const current = selectedIndCount(card);
-            if (chk.checked && current > 2){
-              chk.checked = false;
-              toast('Cada aluno pode escolher no máximo 2 provas individuais.');
-              return;
-            }
+      const categoria = divAluno.querySelector(".categoria").value;
+      prova2.innerHTML = `<option value="">Selecione</option>`;
+      if (categoria && provasPorCategoria[categoria]) {
+        provasPorCategoria[categoria].forEach(p => {
+          if (p !== prova1) {
+            prova2.innerHTML += `<option value="${p}">${p}</option>`;
           }
-
-          // Atualizar contagem por prova (escola)
-          if (chk.checked) perEventCount[ev.id]++; else perEventCount[ev.id] = Math.max(0, perEventCount[ev.id]-1);
-          // Re-render geral para atualizar slots/locks
-          $$('.student-card').forEach(c => refreshStudentEvents(c));
-          updateIndAndRelaySummary(card);
         });
+      }
+    }
 
-        return box;
+    async function enviarFormulario() {
+      const unidadeEnsino = document.getElementById("unidadeEnsino").value;
+      const professor = document.getElementById("professor").value;
+      const email = document.getElementById("email").value;
+      const telefone = document.getElementById("telefone").value;
+
+      const alunos = [];
+      document.querySelectorAll(".aluno").forEach(div => {
+        const nome = div.querySelector(".nome").value;
+        const genero = div.querySelector(".genero").value;
+        const dataNascimento = div.querySelector(".dataNascimento").value;
+        const categoria = div.querySelector(".categoria").value;
+        const prova1 = div.querySelector(".prova1").value;
+        const prova2 = div.querySelector(".prova2").value;
+        const revezamento = div.querySelector(".revezamento").value;
+
+        if (!prova1 && !prova2 && !revezamento) {
+          alert(`O aluno ${nome} precisa estar inscrito em pelo menos uma prova.`);
+          return;
+        }
+
+        alunos.push({ nome, genero, dataNascimento, categoria, prova1, prova2, revezamento });
+      });
+
+      if (alunos.length === 0) {
+        alert("Inclua pelo menos um aluno!");
+        return;
       }
 
-      // Individuais
-      EVENTS.individual.forEach(ev => {
-        const item = makeEventCheckbox(ev, 'ind');
-        indWrap.appendChild(item);
-      });
+      const data = { unidadeEnsino, professor, email, telefone, alunos };
 
-      // Relay (há 1 possível por categoria)
-      EVENTS.relay.forEach(ev => {
-        const item = makeEventCheckbox(ev, 'relay');
-        const chk = $('input', item);
-        // Apenas 1 revezamento por aluno (na prática, por categoria só existe um)
-        chk.addEventListener('change', () => {
-          if (chk.checked){
-            // desmarcar qualquer outro relay neste card
-            $$('input[type="checkbox"][data-ev]', relayWrap).forEach(other => {
-              if (other !== chk && other.checked){ other.checked = false; perEventCount[other.dataset.ev] = Math.max(0, perEventCount[other.dataset.ev]-1); }
-            });
-          }
-          updateIndAndRelaySummary(card);
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbyvffLlmVUu20Bgjz8CB5U7P5myf01cdsnzvxLhgcFziRsDHdML2N4eITaaxQ8njKZbKA/exec", {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
         });
-        relayWrap.appendChild(item);
-      });
 
-      // Ao trocar categoria, desmarcar itens incompatíveis
-      $$('input[type="checkbox"][data-ev]', card).forEach(chk => {
-        const evId = chk.dataset.ev;
-        const ev = [...EVENTS.individual, ...EVENTS.relay].find(e => e.id === evId);
-        if (cat && !ev.categories.includes(cat) && chk.checked){
-          chk.checked = false; perEventCount[evId] = Math.max(0, perEventCount[evId]-1);
-        }
-      });
-
-      updateIndAndRelaySummary(card);
-    }
-
-    function selectedIndCount(card){
-      const ids = $$('input[type="checkbox"][data-ev]', card)
-        .filter(x => EVENTS.individual.some(e => e.id === x.dataset.ev) && x.checked)
-        .length;
-      return ids;
-    }
-
-    function updateIndAndRelaySummary(card){
-      const indN = selectedIndCount(card);
-      $('.ind-count', card).textContent = indN;
-      const relayChecked = $$('input[type="checkbox"][data-ev]', card)
-        .some(x => EVENTS.relay.some(e => e.id === x.dataset.ev) && x.checked);
-      $('.relay-label', card).textContent = relayChecked ? 'Sim' : '—';
-    }
-
-    // Toast simples
-    let toastT = null;
-    function toast(msg){
-      if ($('#toast')) { clearTimeout(toastT); $('#toast').remove(); }
-      const div = document.createElement('div');
-      div.id = 'toast';
-      div.style.position = 'fixed';
-      div.style.right = '16px';
-      div.style.bottom = '16px';
-      div.style.background = '#0b1328';
-      div.style.border = '1px solid var(--border)';
-      div.style.color = 'var(--text)';
-      div.style.padding = '10px 14px';
-      div.style.borderRadius = '12px';
-      div.style.boxShadow = '0 10px 30px #0008';
-      div.textContent = msg;
-      document.body.appendChild(div);
-      toastT = setTimeout(() => div.remove(), 2800);
-    }
-
-    function collectData(){
-      const school = $('#school').value.trim();
-      const teacher = $('#teacher').value.trim();
-      if (!school || !teacher) { toast('Preencha os dados da escola e do professor.'); return null; }
-      const students = [];
-      let ok = true;
-
-      $$('.student-card').forEach((card, idx) => {
-        const name = $('.inp-name', card).value.trim();
-        const dob  = $('.inp-dob', card).value;
-        const doc  = $('.inp-doc', card).value.trim();
-        const cat  = $('.sel-category', card).value;
-        const selected = $$('input[type="checkbox"][data-ev]', card).filter(x => x.checked).map(x => x.dataset.ev);
-
-        const ind = selected.filter(id => EVENTS.individual.some(e => e.id===id));
-        const relay = selected.filter(id => EVENTS.relay.some(e => e.id===id));
-
-        if (!name || !dob || !doc || !cat) { ok = false; }
-        if (ind.length === 0) { ok = false; }
-        if (ind.length > 2) { ok = false; }
-        // conferência de categoria
-        const invalidCat = selected.some(id => {
-          const ev = [...EVENTS.individual, ...EVENTS.relay].find(e => e.id===id);
-          return !ev.categories.includes(cat);
-        });
-        if (invalidCat) { ok = false; }
-
-        students.push({ name, dob, doc, category: cat, individual: ind, relay: relay[0] || null });
-      });
-
-      if (!students.length) { toast('Adicione pelo menos 1 aluno.'); return null; }
-      if (!ok) { toast('Revise os dados: campos obrigatórios, categoria e limite de 2 provas por aluno.'); return null; }
-
-      // Validação escola: no máximo 2 alunos por prova (já aplicado em tempo real, mas reconfirmamos)
-      const schoolCount = {};
-      students.forEach(st => {
-        [...st.individual, st.relay].filter(Boolean).forEach(evId => {
-          schoolCount[evId] = (schoolCount[evId]||0)+1;
-        });
-      });
-      for (const [evId, n] of Object.entries(schoolCount)){
-        if (n > 2) { toast(`Limite excedido: mais de 2 alunos no evento "${labelOf(evId)}".`); return null; }
+        alert("Inscrição enviada com sucesso!");
+      } catch (error) {
+        alert("Erro ao enviar inscrição: " + error.message);
       }
-
-      return { school, teacher, submissions: students, timestamp: new Date().toISOString() };
     }
-
-    function labelOf(evId){
-      const e = [...EVENTS.individual, ...EVENTS.relay].find(x => x.id===evId);
-      return e ? e.label : evId;
-    }
-
-    function previewJSON(obj){
-      const w = window.open('', '_blank');
-      const pretty = `<pre style="white-space:pre-wrap;word-break:break-word;background:#0b1020;color:#e5e7eb;padding:16px;border-radius:12px;">${escapeHtml(JSON.stringify(obj, null, 2))}</pre>`;
-      w.document.write(`<!doctype html><title>Pré-visualização</title><meta charset="utf-8"><body style="background:#0f172a;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;">${pretty}</body>`);
-      w.document.close();
-    }
-
-    function escapeHtml(str){
-      return str.replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[s]));
-    }
-
-    // ======== ENVIO PARA GOOGLE SHEETS ========
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbym_EI24RpIVMYBU3xGwAH1tSFw-HuG8hx0F8uCE-kaOc0ZAqvQAAHMrk8hmu1FRhuA/exec";
-
-    document.getElementById('addStudentBtn').addEventListener('click', addStudent);
-
-    document.getElementById('submitBtn').addEventListener('click', () => {
-      const data = collectData();
-      if (!data) return;
-
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(r => r.json())
-      .then(resp => {
-        if (resp.result === "success") {
-          toast("Inscrições enviadas com sucesso!");
-        } else {
-          toast("Erro: " + (resp.error || 'Falha desconhecida'));
-        }
-      })
-      .catch(err => toast("Falha no envio: " + err));
-    });
-
-    document.getElementById('previewBtn').addEventListener('click', () => {
-      const data = collectData();
-      if (!data) return;
-      previewJSON(data);
-    });
-
-    // Boot
-    renderAvailability();
-    addStudent();
   </script>
 </body>
 </html>
